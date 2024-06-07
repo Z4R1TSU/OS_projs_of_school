@@ -1,0 +1,14 @@
+[
+{
+  "directory": "E:/MSYS2/home/30786/os/build",
+  "command": "E:\\MSYS2\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\4_1fs.dir\\4_1fs.cpp.obj -c E:\\MSYS2\\home\\30786\\os\\4_1fs.cpp",
+  "file": "E:/MSYS2/home/30786/os/4_1fs.cpp",
+  "output": "CMakeFiles/4_1fs.dir/4_1fs.cpp.obj"
+},
+{
+  "directory": "E:/MSYS2/home/30786/os/build",
+  "command": "E:\\MSYS2\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\4_1fs.dir\\4_1fs_main.cpp.obj -c E:\\MSYS2\\home\\30786\\os\\4_1fs_main.cpp",
+  "file": "E:/MSYS2/home/30786/os/4_1fs_main.cpp",
+  "output": "CMakeFiles/4_1fs.dir/4_1fs_main.cpp.obj"
+}
+]
