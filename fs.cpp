@@ -183,6 +183,12 @@ bool FileSystem::change_dir(const string& dirname) {
         return false;
     }
 
+    if (dirname == "/" || dirname == "~") {
+        cur_dir = &root;
+        cout << "切换到根目录成功" << endl;
+        return true;
+    }
+
     // 切换到当前目录 = do nothing
     if (dirname == ".") {
         cout << "当前已经在当前目录" << endl;
@@ -192,8 +198,8 @@ bool FileSystem::change_dir(const string& dirname) {
     // 切换到上级目录
     if (dirname == "..") {
         // 不能切换到根目录的上级目录
-        if (cur_dir->name == "/") {
-            cout << "当前已经在根目录" << endl;
+        if (cur_dir->name == "/" || cur_dir->name == "~") {
+            cout << "当前已经在根目录，无法再切换到上级" << endl;
             return false;
         }
         cur_dir = cur_dir->parent;
