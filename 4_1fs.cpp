@@ -100,11 +100,11 @@ bool FileSystem::overwriteFile(const string& username, const string& filename, c
 }
 
 bool FileSystem::renameFile(const string& username, const string& oldname, const string& newname) {
-    // TODO: debug
     if (auto isFound = isFileExist(username, oldname); isFound) {
         if (isValidFilename(newname)) {
             mfd[username].files[newname] = mfd[username].files[oldname];
             mfd[username].files.erase(oldname);
+            mfd[username].files[newname].name = newname;
             cout << "用户" << username << "将旧名字" << oldname << "改为新名字" << newname << "成功" << endl;
             return true;
         } else {
@@ -118,7 +118,6 @@ bool FileSystem::renameFile(const string& username, const string& oldname, const
 }
 
 void FileSystem::printAllFiles() {
-    // TODO: debug
     for (const auto& user : mfd) {
         cout << "用户" << user.first << "拥有如下文件：" << endl;
         for (const auto& file : user.second.files) {
