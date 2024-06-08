@@ -46,6 +46,10 @@ int main() {
         cout << "            |                                                                                                                                           |\n";
         cout << "            |                                                        ◎ 13. 显示当前目录          ◎                                                      |\n";
         cout << "            |                                                                                                                                           |\n";
+        cout << "            |                                                        ◎ 14. 显示工作路径          ◎                                                      |\n";
+        cout << "            |                                                                                                                                           |\n";
+        cout << "            |                                                        ◎ 15. 显示磁盘占用          ◎                                                      |\n";
+        cout << "            |                                                                                                                                           |\n";
         cout << "            --------------------------------------------------------------------------------------------------------------------------------------------\n";
         cout << "请选择 >> ";
         do {
@@ -54,10 +58,10 @@ int main() {
                 cin.clear();
                 cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 cout << "输入有误，请重新输入合法的选项" << endl;
-            } else if (n < 0 || n > 13) {
+            } else if (n < 0 || n > 15) {
                 cout << "输入有误，请重新输入合法的选项" << endl;
             }
-        } while (n < 0 || n > 13);
+        } while (n < 0 || n > 15);
 
         switch(n) {
             case 1: {
@@ -163,6 +167,16 @@ int main() {
             }
             case 13: {
                 fs.list_dir();
+                system("pause");
+                break;
+            }
+            case 14: {
+                fs.print_working_dir();
+                system("pause");
+                break;
+            }
+            case 15: {
+                fs.disk_usage();
                 system("pause");
                 break;
             }

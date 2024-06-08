@@ -61,6 +61,8 @@ public:
     bool change_dir(const string& dirname);
     bool delete_dir(const string& dirname);
     bool list_dir();
+    bool print_working_dir();
+    bool disk_usage();
     bool logout();
 
 private:

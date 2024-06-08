@@ -218,6 +218,43 @@ bool FileSystem::list_dir() {
     return true;
 }
 
+bool FileSystem::print_working_dir() {
+    if (!is_login) {
+        cout << "未认证的用户，请先登录" << endl;
+        return false;
+    }
+
+    vector<string> path;
+    Directory *dir_ptr = cur_dir;
+    while (dir_ptr->name != "/") {
+        path.push_back(dir_ptr->name);
+        dir_ptr = dir_ptr->parent;
+    }
+
+    // 这里需要倒序打印路径
+    cout << "当前工作路径: /";
+    for (auto it = path.rbegin(); it != path.rend(); it ++) {
+        cout << *it << "/";
+    }
+    return true;
+}
+
+bool FileSystem::disk_usage() {
+    if (!is_login) {
+        cout << "未认证的用户，请先登录" << endl;
+        return false;
+    }
+
+    size_t cnt = 0;
+    for (const auto& is_used : bitmap) {
+        if (is_used) {
+            cnt ++;
+        }
+    }
+    cout << "磁盘已使用 " << cnt << " / " << FS_SZ << " 字节" << endl;
+    return true;
+}
+
 bool FileSystem::logout() {
     if (!is_login) {
         cout << "未认证的用户，请先登录" << endl;
