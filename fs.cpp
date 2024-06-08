@@ -168,6 +168,13 @@ bool FileSystem::change_dir(const string& dirname) {
         cout << "未认证的用户，请先登录" << endl;
         return false;
     }
+
+    if (dirname == "..") {
+        cur_dir = cur_dir->parent;
+        cout << "切换到上级目录成功" << endl;
+        return true;
+    }
+
     if (cur_dir->dirs.find(dirname) == cur_dir->dirs.end()) {
         cout << "当前目录" << cur_dir->name << "下不存在" << dirname << "目录" << endl;
         return false;
