@@ -122,7 +122,17 @@ bool FileSystem::write_file(const string& filename, const string& content) {
         return false;
     }
 
+    // 释放原有磁盘空间
+    for (int i = cur_dir->files[filename]->start_addr; i < cur_dir->files[filename]->start_addr + cur_dir->files[filename]->size; i ++) {
+        bitmap[i] = false;
+    }
+
+    // 找到空闲的磁盘块，需要保证连续且大小足够
     cur_dir->files[filename]->content = content;
+    cur_dir->files[filename]->size = content.length();
+    for (int i = cur_dir->files[filename]->start_addr; i < cur_dir->files[filename]->start_addr + cur_dir->files[filename]->size; i ++) {
+        bitmap[i] = true;
+    }
     cout << "写入成功" << endl;
     return true;
 }
@@ -224,7 +234,9 @@ bool FileSystem::print_working_dir() {
         return false;
     }
 
+    // 打印当前目录的路径
     vector<string> path;
+    // 先找到根目录
     Directory *dir_ptr = cur_dir;
     while (dir_ptr->name != "/") {
         path.push_back(dir_ptr->name);
@@ -236,6 +248,7 @@ bool FileSystem::print_working_dir() {
     for (auto it = path.rbegin(); it != path.rend(); it ++) {
         cout << *it << "/";
     }
+    cout << endl;
     return true;
 }
 
