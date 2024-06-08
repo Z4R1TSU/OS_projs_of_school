@@ -48,15 +48,18 @@ bool FileSystem::create_file(const string& filename, const string& content) {
         return false;
     }
 
+    // 找到空闲的磁盘块，需要保证连续且大小足够
     int size = content.length();
     auto free_space = find_free_space(size);
     if (free_space.empty()) {
         cout << "磁盘已满，无法创建该文件" << endl;
         return false;
     } else {
+        // 标记磁盘块为已使用
         for (auto block : free_space) {
             bitmap[block] = true;
         }
+        // 创建文件
         int start_addr = free_space.front();
         cur_dir->files[filename] = std::make_unique<File>(File{ filename, start_addr, size, content, false });
         cout << "创建" << filename << "文件成功" << endl;
@@ -134,10 +137,12 @@ bool FileSystem::delete_file(const string& filename) {
         return false;
     }
 
+    // 释放磁盘空间
     auto file = cur_dir->files[filename].get();
     for (int i = file->start_addr; i < file->start_addr + file->size; i ++) {
         bitmap[i] = false;
     }
+    // 删除当前目录下文件
     cur_dir->files.erase(filename);
     cout << "删除" << filename << "文件成功" << endl;
     return true;
@@ -194,12 +199,12 @@ bool FileSystem::list_dir() {
         return false;
     }
     
-    cout << "当前目录" << cur_dir->name << "存在子目录: " << endl;
+    cout << "当前目录 \"" << cur_dir->name << "\" 存在子目录: " << endl;
     for (const auto& [name, dir] : cur_dir->dirs) {
         cout << "  " << name << "/" << endl;
     }
 
-    cout << "当前目录" << cur_dir->name << "存在文件: " << endl;
+    cout << "当前目录 \"" << cur_dir->name << "\" 存在文件: " << endl;
     for (const auto& [name, file] : cur_dir->files) {
         cout << "  " << name << endl;
     }

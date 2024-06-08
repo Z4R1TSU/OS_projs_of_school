@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "4_1fs.exe"
+			"path" : "fs.exe"
 		},
 		{
-			"path" : "4_1fs.pdb"
+			"path" : "fs.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -57,7 +57,7 @@
 			]
 		}
 	],
-	"id" : "4_1fs::@6890427a1f51a3e7e1df",
+	"id" : "fs::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -77,8 +77,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "4_1fs",
-	"nameOnDisk" : "4_1fs.exe",
+	"name" : "fs",
+	"nameOnDisk" : "fs.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -100,13 +100,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "4_1fs.cpp",
+			"path" : "fs.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "4_1fs_main.cpp",
+			"path" : "fs_main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

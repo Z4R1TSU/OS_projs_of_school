@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\MSYS2\home\30786\os\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/4_1fs.dir/all
+all: CMakeFiles/fs.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/4_1fs.dir/clean
+clean: CMakeFiles/fs.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/4_1fs.dir
+# Target rules for target CMakeFiles/fs.dir
 
 # All Build rule for target.
-CMakeFiles/4_1fs.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\4_1fs.dir\build.make CMakeFiles/4_1fs.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\4_1fs.dir\build.make CMakeFiles/4_1fs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\MSYS2\home\30786\os\build\CMakeFiles --progress-num=1,2,3 "Built target 4_1fs"
-.PHONY : CMakeFiles/4_1fs.dir/all
+CMakeFiles/fs.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\fs.dir\build.make CMakeFiles/fs.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\fs.dir\build.make CMakeFiles/fs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\MSYS2\home\30786\os\build\CMakeFiles --progress-num=1,2,3 "Built target fs"
+.PHONY : CMakeFiles/fs.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/4_1fs.dir/rule: cmake_check_build_system
+CMakeFiles/fs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\MSYS2\home\30786\os\build\CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/4_1fs.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/fs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\MSYS2\home\30786\os\build\CMakeFiles 0
-.PHONY : CMakeFiles/4_1fs.dir/rule
+.PHONY : CMakeFiles/fs.dir/rule
 
 # Convenience name for target.
-4_1fs: CMakeFiles/4_1fs.dir/rule
-.PHONY : 4_1fs
+fs: CMakeFiles/fs.dir/rule
+.PHONY : fs
 
 # clean rule for target.
-CMakeFiles/4_1fs.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\4_1fs.dir\build.make CMakeFiles/4_1fs.dir/clean
-.PHONY : CMakeFiles/4_1fs.dir/clean
+CMakeFiles/fs.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\fs.dir\build.make CMakeFiles/fs.dir/clean
+.PHONY : CMakeFiles/fs.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

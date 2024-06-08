@@ -915,7 +915,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "4_1fs"
+			"value" : "fs"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
