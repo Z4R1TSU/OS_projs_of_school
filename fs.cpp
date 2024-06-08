@@ -167,6 +167,10 @@ bool FileSystem::make_dir(const string& dirname) {
         cout << "目录已存在" << endl;
         return false;
     }
+    if (dirname == ".." || dirname == "." || dirname == "/") {
+        cout << "不能创建" << dirname << "目录，该目录已被占用" << endl;
+        return false;
+    }
 
     cur_dir->dirs[dirname] = std::make_unique<Directory>(Directory{ dirname, cur_dir });
     cout << "创建" << dirname << "目录成功" << endl;
@@ -179,7 +183,15 @@ bool FileSystem::change_dir(const string& dirname) {
         return false;
     }
 
+    // 切换到当前目录 = do nothing
+    if (dirname == ".") {
+        cout << "当前已经在当前目录" << endl;
+        return true;
+    }
+
+    // 切换到上级目录
     if (dirname == "..") {
+        // 不能切换到根目录的上级目录
         if (cur_dir->name == "/") {
             cout << "当前已经在根目录" << endl;
             return false;
