@@ -180,6 +180,10 @@ bool FileSystem::change_dir(const string& dirname) {
     }
 
     if (dirname == "..") {
+        if (cur_dir->name == "/") {
+            cout << "当前已经在根目录" << endl;
+            return false;
+        }
         cur_dir = cur_dir->parent;
         cout << "切换到上级目录成功" << endl;
         return true;
